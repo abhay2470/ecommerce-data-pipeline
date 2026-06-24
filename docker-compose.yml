@@ -66,6 +66,16 @@ services:
       - postgres-db
     networks:
       - pipeline-net
+# ── Grafana ───────────────────────────────────────
+  grafana:
+    image: grafana/grafana-oss
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - pipeline-net
 
 volumes:
   postgres_data:
